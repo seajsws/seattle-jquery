@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Seattle jQuery Meetup</title>
+</head>
+<body>
+  
+  <h1>Reviewed</h1>
+
+  <ul>
+    <li>1.3.2 to 1.4.2 distribution and changes</li>
+    <li><a href="http://code.google.com/events/io/2010/sessions/measure-in-milliseconds-speed-tracer-gwt.html">Google Speed Tracer</a></li>
+    <li>1.4.2 live() vs. <a href="http://api.jquery.com/delegate/">delegate()</a></li>
+    <li><a href="http://ejohn.org/apps/workshop/adv-talk/#13">Event Namespacing</a></li>
+    <li><a href="http://flowplayer.org/tools/index.html">jQuery TOOLS</a></li>
+    <li>Tooltips</li>
+    <li>PHP parse of XML and JSON</li> 
+  </ul>
+
+  <h1>Bind Example</h1>
+
+  <p>Goal: button2 should not do an initial action. Click button1 to activate button2.</p>
+  <button id="button1">button1</button>
+  <button id="button2">button2</button>
+
+  <h1>Delegate Example</h1>
+
+  <p>Goal: Title and AJAX request serialization.</p> 
+  <ul id="help-cont">
+    <li title="Help guide 1" data="{helpid: 123}">Click to display guide 1</li>
+    <li title="Help guide 2" data="{helpid: 456, q: 'guide 2'}">Click to display guide 2</li>
+  </ul>
+
+  <script type="text/javascript" 
+          src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+  <script type="text/javascript" 
+          src="bind-events.js"></script>
+</body>
+
+</html>
