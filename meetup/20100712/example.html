@@ -1,13 +1,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Seattle jQuery Meetup</title>
-    <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
-    <script src="jquery.tmpl.js" type="text/javascript"></script>
-    <script src=""></script>
   </head>
   <body>
 
     
-	
+    <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+    <script src="jquery.tmpl.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+ 
+    var clientData = [
+        { name: "Rey Bango", id: 1 },
+        { name: "Mark Goldberg", id: 2 },
+        { name: "Jen Statford", id: 3 }
+    ];
+ 
+	$("#clientTemplate").tmpl(clientData).appendTo( "ul" );
+	 
+	});
+
+    </script>
   </body>
 </html>
