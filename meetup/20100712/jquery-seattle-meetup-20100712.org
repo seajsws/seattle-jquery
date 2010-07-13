@@ -1,0 +1,30 @@
+* Overview 
+
+* Discussion
+
+** Seattle jQuery Open Space and Hack Attack Overview 
+   
+http://meetups.jquery.com/xn/detail/4919002:Event:27416?xg_source=activity
+
+http://www.slideshare.net/jeresig/testing-mobile-javascript
+
+** $.tmpl()
+
+http://blog.reybango.com/2010/07/09/not-using-jquery-javascript-templates-youre-really-missing-out/
+
+Alternative, 
+
+http://code.google.com/closure/library/docs/gettingstarted.html
+
+** Firebug and the console 
+
+*** Compare the location 
+
+** node.js
+
+** git Installation
+
+http://gitx.frim.nl/
+
+
+http://code.google.com/p/tortoisegit/
