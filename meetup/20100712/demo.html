@@ -1,0 +1,53 @@
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="jquery.tmpl.js"></script>
+<script>
+jQuery(function(){
+	var dataObject = {
+        	name: function() {
+			return this.firstName + " " + this.lastName;
+		},
+        	firstName: "John",
+		lastName: "Resig",
+        	url: "http://ejohn.org/",
+		cityJoin: function() {
+			return this.cities.join(", ");
+		},
+        	cities: [
+                	"Boston, MA",
+                	"San Francisco, CA"
+        	]
+	};
+	
+	var arrayOfDataObjects = [ dataObject, dataObject, dataObject ];
+	
+	var tmpl = '<li>${$i}) <a href="${url}">${name}</a> (${cityJoin})</li>';
+
+	$("#sometmpl")
+        	.render( dataObject ) // Returns a LI with all the data filled in
+        	.appendTo("ul");
+
+	$("#sometmpl")
+        	.render( arrayOfDataObjects ) // Returns multiple LIs with data filled in
+        	.appendTo("ul");
+
+	$("#sometmpl2")
+        	.render( arrayOfDataObjects ) // Returns multiple LIs with data filled in
+        	.appendTo("ul");
+	
+	// Appends one LI, filled with data, into the UL
+	$("ul").append( tmpl, dataObject );
+
+	// Appends multiple LI, filled with data, into the UL
+	$("ul").append( tmpl, arrayOfDataObjects );
+});
+</script>
+
+<script id="sometmpl" type="text/html">
+	<li>${$i}) <a href="${url}">${name}</a> (${cityJoin})</li>
+</script>
+
+<script id="sometmpl2" type="text/html">
+	<li>${$i}) <a href="${url}">${name}</a> Cities: {{each(i,city) cities}}${city}{{/each}}</li>
+</script>
+
+<ul></ul>
