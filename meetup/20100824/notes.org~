@@ -1,0 +1,55 @@
+* Overview 
+
+* Discussion 
+
+** jQTouch 
+
+Base implementation. 
+
+
+** Planning for next meeting 
+
+** WordPress 
+
+http://podscms.org/
+
+http://www.wptouch.com/
+
+http://digwp.com/
+
+
+** Switching UserAgent for testing 
+
+https://addons.mozilla.org/en-US/firefox/addon/59/
+
+http://www.renjusblog.com/2010/03/google-chrome-user-agent-switcher.html
+
+\AppData\Local\Google\Chrome\Application\chrome.exe
+
+--user-agent="custom string"
+
+
+
+** Sample Application for Friends 
+xd
+Facebook friends 
+
+[Login]
+
+-> 
+[photo]
+[name1]
+[name2]
+[name3]
+
+-> Success 
+-> Error 
+
+** App Store 
+
+https://chrome.google.com/webstore
+
+** ajaxForm
+
+http://jquery.malsup.com/form/
+

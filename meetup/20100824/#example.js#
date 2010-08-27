@@ -1,0 +1,11 @@
+$("#holder").html("loaded");
+
+var ACCESS_TOKEN = "";
+
+$.ajax(
+    "https://graph.facebook.com/btaylor?" + ACCESS_TOKEN,
+    function(data) {
+	$("#holder").html(data);
+    }
+);
+

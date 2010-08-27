@@ -1,0 +1,109 @@
+* Overview 
+
+A LinkedIn group has been created.
+
+Future meetups will be noted on meetups.jquery.com and upcoming.org.
+
+Examples will be available at 
+
+http://github.com/jwalsh/seattle-jquery/tree/master/meetup/20100712/
+
+* Discussion 
+
+** jQTouch 
+
+Will perform a base implementation during the next meeting.  Reviewed sample markup for a mobile site. 
+
+http://jqtouch.com/
+
+** Planning for next meeting 
+
+Will be at Pinch/Zoom.  
+
+** WordPress presentation of mobile sites with jQuery 
+
+Looked at a couple of sites that use WordPress to provide mobile functionality. 
+
+http://podscms.org/
+http://www.wptouch.com/
+http://digwp.com/
+
+
+** Switching UserAgent for testing 
+
+Reviewed options for switching to an iPhone user agent to test in a browser with FireBug or Chrome Developer Tools.
+
+https://addons.mozilla.org/en-US/firefox/addon/59/
+
+http://www.renjusblog.com/2010/03/google-chrome-user-agent-switcher.html
+--user-agent="custom string"
+
+** Sample Application for Friends 
+
+Likely the application for prototype will mirror that from Startup Weekend based on LinkedIn: name your Facebook friends.
+
+This would Facebook Open Graph with jQuery.ajax() and jQTouch.  
+
+[Login]
+
+-> Test
+
+Score: 0
+[photo]
+[name1]
+[name2]
+[name3]
+
+-> Success
+
+Score + 1
+ 
+-> Error 
+
+Score - 1
+
+** Open Graph protocol
+
+http://developers.facebook.com/docs/opengraph
+
+Use an external site identifier for creating messaging and events. 
+
+** Alternatives to jQTouch 
+
+http://developer.apple.com/iad/
+http://www.sencha.com/
+
+** App Store and payments 
+
+Package the game through the Chrome Web Store. 
+
+https://chrome.google.com/webstore
+https://payments.amazon.com/sdui/sdui/business?sn=devfps/mps
+
+** json vs. jsonp with APIs
+
+Use a "callback" parameter; this is wrapped with the anonymous function in the callback in $.ajax(url, callback).
+
+http://api.jquery.com/jQuery.ajax/
+
+Supported by the Facebook Open Graph API, Yelp, LinkedIn, Yahoo.
+
+** Alternatives to JavaScript 
+
+http://developer.yahoo.com/ruby/ruby-json.html#lib
+
+** Alternative games using the Google Maps Mobile API 
+
+http://www.google.com/mobile/maps/
+
+** Duplication of rendering logic between JSP/PHP and JavaScript 
+
+http://github.com/nje/jquery-tmpl
+
+** Automatic binding of forms to Ajax
+
+http://jquery.malsup.com/form/
+
+** Other APIs
+
+http://twitter.com/anywhere
