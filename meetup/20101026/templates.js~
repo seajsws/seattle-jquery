@@ -1,0 +1,11 @@
+(function ($) {
+
+   var wal = wal || {
+     sh: {}
+   };
+   var getPage = function (args) {
+     
+   };
+   
+
+ });

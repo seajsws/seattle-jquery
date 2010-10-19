@@ -1,0 +1,7 @@
+$.ajax({
+  url: 'http://htmlten.com/db/couchdemo/',
+  type: 'GET',
+  success: function(response){
+    console.log(response);
+  }
+});
