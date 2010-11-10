@@ -1,0 +1,48 @@
+h2.  Background 
+
+* [http://ejohn.org/blog/javascript-micro-templating/]: ASP-style template tool providing the foundation for jQuery.tmpl, srender, jQote (July 2008)
+* [http://stackoverflow.com/questions/170168/jquery-templating-engines]: List of templating engines (January 2010)
+* [http://www.viget.com/extend/benchmarking-javascript-templating-libraries/]: Performance characteristics (December 2009)
+* [http://wiki.github.com/nje/jquery/jquery-templates-proposal]: jQuery.tmpl fork and review of template systems (February 2010)
+* [http://forum.jquery.com/topic/templating-syntax]: Syntax considerations (focus on jquery-tmpl) (March 2010)
+* [http://visualstudiomagazine.com/articles/2010/03/16/mix10-jquery-announcement.aspx]:  Visual Studio 2010 templating support (March 2010)
+* [jQuery Templates, Data Link, and Globalization Accepted as Official jQuery Plugins|http://weblogs.asp.net/scottgu/archive/2010/10/04/jquery-templates-data-link-and-globalization-accepted-as-official-jquery-plugins.aspx] (October 2010)
+* Alex Sexton's [jQuery’s Best Friends|http://jquerysbestfriends.com/#slide35]: #jqconf presentation (October 2010)
+ 
+h2.  Review 
+
+|| Library || Background || Example || Reviewer || 
+| [mustache.js|http://github.com/janl/mustache.js/] | Popular based on Ruby's Mustache  | {code} "{{name}} says {{msg}}" {code}| Jason | 
+| [jQuery.tmpl()|http://github.com/jquery/jquery-tmpl] | Official jQuery templating solution  | {code}"<div>{{=name}} says {{=msg}}</div>"{code}| | 
+| [underscore.js|http://documentcloud.github.com/underscore/] | Functional methods (map, select, invoke) and helpers including _.template | {code}"<%= name %> says <%= msg %>"{code} | Jason | 
+| [nTPL|http://github.com/donnerjack13589/nTPL] | | | |
+| [EJS|http://embeddedjs.com/] | | | | 
+| [pure|http://beebole.com/pure/] | | | | 
+| [JST|http://code.google.com/p/trimpath/wiki/JavaScriptTemplates] | | | | 
+| [jQuery Nano|http://github.com/trix/nano] | | | |
+| [jquery-haml|http://github.com/creationix/jquery-haml] | | {code}'[".user", name], "says", msg]'{code} | | 
+| [Closure|http://code.google.com/p/closure-templates/] | Soy files with Closure Templates    | {code}{$name} says {$msg}{code} | Jason | 
+| [Google JSTemplates|http://code.google.com/p/google-jstemplate/] | | | | 
+| [json-template|http://code.google.com/p/json-template/] | | | |
+| [jQote|http://aefxx.com/jquery-plugins/jqote/] | | | | 
+| [srender|http://github.com/atduskgreg/srender.git] | | | | 
+| [Tempest|http://github.com/fitzgen/tempest.git] | | | | 
+| [jMarker|http://extasp.net/jmarker/index.htm] | FreeMarker syntax | | | 
+| Dojo | replace() | | | 
+| [Prototype|http://www.prototypejs.org/api/template] | | {code}"#{name} says #{msg}"{code} | | 
+| JsonFx.NET | | | | 
+| [Jst|http://blog.markturansky.com/BetterJavascriptTemplates.html] | | | |  
+| [jTemplates|http://jtemplates.tpython.com/ ]| | | | 
+| [JSON Template|http://json-template.googlecode.com/svn/trunk/doc/Introducing-JSON-Template.html ]| | | | 
+| [LinkedIn Tags and Templates|http://developer.linkedin.com/docs/DOC-1224] | | {code}<?js= name ?> says <?js= msg ?>{code} | | 
+
+
+h2.  Considerations
+
+* Base HTML generation shouldn't have dependency on synchronous script loading.  (from [Render first. JS second.|http://www.stevesouders.com/blog/2010/09/30/render-first-js-second/])
+* No filesystem access if whitespace is used 
+* Limited tools support 
+* Additional HTTP requests if templates structured by data / model type
+* Limit tool support
+* Performance from dependency management
+

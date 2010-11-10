@@ -1,0 +1,97 @@
+* Summary 
+
+We won't be able to move forward with development practices unless we begin building out the tools for JavaScript development that doesn't depend on the server or the running context.  This will talk through options 
+for testing new features and mocking content and base cnotracts that e
+
+
++ Wanted to provide the expected separation of content from the data 
+
++ Allow for reuse 
+
++ Centralize te locaiton 
+
++ Treate big and small views differently 
+
+** Noise 
+
+* Features 
+Why is there an office jQuery plugin?  Reviewed against.
+
+Template systems are like todo lists.  
+Every one has their favorite.
+
+* Review 
+
+Look at what other sites use. 
+
+** Concatenation 
+
+** XHR 
+
+Just pull all of the content from the server.
+
+Requires duplicated work. 
+
+** Mustache 
+
+http://github.com/janl/mustache.js.git
+
+Recommended by 
+
+http://wiki.apache.org/couchdb/Generating%20HTML%20from%20Javascript%20shows%20and%20lists
+
+Notes available in 
+
+http://net.tutsplus.com/tutorials/javascript-ajax/quick-tip-using-the-mustache-template-library/
+
+** $.tmpl() 
+
+Client based.  Available on the server as 
+
+http://github.com/kof/node-jqtpl
+
+
+Client side interactivity. 
+
+* Implementation 
+
+** Run through each of the examples 
+
+* Risks / evaluation factors 
+
+** When to use server rendering 
+
+Use the template only for the single time rendering 
+
+** Templates not readable 
+
+** No tools for segmenting functionality 
+
+** Templates will proliferate 
+
+** Caching 
+** Performance 
+
+What heppens during a compilation process. 
+
+** RequiresJS 
+
+** DRY
+
+** Maintainability 
+
+Could become fragmented; no obvious reuse. 
+** Where to serve
+
+** How to cache 
+
+** How to avoid duplication
+** <noscript> ? 
+
+** Templates and progressive enhancement 
+ 
+http://github.com/ry/node/wiki/modules
+
+* Notes
+
+http://benv.ca/2010/1/24/5-tips-for-better-javascript-applications/
