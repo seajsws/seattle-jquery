@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>templates</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2010-11-09 18:40:58 PST"/>
+<meta name="author" content="Walsh"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+
+<h1 class="title">templates</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Summary </a></li>
+<li><a href="#sec-2">2 Review </a>
+<ul>
+<li><a href="#sec-2.1">2.1 Concatenation </a></li>
+<li><a href="#sec-2.2">2.2 XHR </a></li>
+<li><a href="#sec-2.3">2.3 Mustache </a></li>
+<li><a href="#sec-2.4">2.4 $.tmpl() </a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 Implementation </a>
+<ul>
+<li><a href="#sec-3.1">3.1 Run through each of the examples </a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4 Risks / evaluation factors </a>
+<ul>
+<li><a href="#sec-4.1">4.1 When to use server rendering </a></li>
+<li><a href="#sec-4.2">4.2 Performance: compilation of templates is expensive </a></li>
+<li><a href="#sec-4.3">4.3 Templates not readable </a></li>
+<li><a href="#sec-4.4">4.4 No tools for segmenting functionality </a></li>
+<li><a href="#sec-4.5">4.5 Templates will proliferate </a></li>
+<li><a href="#sec-4.6">4.6 Performance:  Caching needed for templates </a></li>
+<li><a href="#sec-4.7">4.7 Performance:  Delivery of excessive templates </a></li>
+<li><a href="#sec-4.8">4.8 Dependency management: Cannot determine which templates are reviewed for a view </a></li>
+<li><a href="#sec-4.9">4.9 RequiresJS </a></li>
+<li><a href="#sec-4.10">4.10 DRY </a></li>
+<li><a href="#sec-4.11">4.11 Maintainability </a></li>
+<li><a href="#sec-4.12">4.12 Where to serve </a></li>
+<li><a href="#sec-4.13">4.13 How to cache </a></li>
+<li><a href="#sec-4.14">4.14 How to avoid duplication </a></li>
+<li><a href="#sec-4.15">4.15 &lt;noscript&gt; ? </a></li>
+<li><a href="#sec-4.16">4.16 Templates and progressive enhancement </a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5 Notes </a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Summary </h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+See rmuphy's discussion.
+</p>
+<ul>
+<li>
+Separate rendering from the data 
+
+</li>
+<li>
+Allow for reuse 
+
+</li>
+<li>
+Minimize mixing JavaScript with HTML
+
+</li>
+<li>
+Treat big and small views differently 
+
+</li>
+<li>
+Allow for design to use templates
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Review </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+Site comparison.  Limited adoption though this could be confirmed with the 1000 beacon.
+</p>
+
+</div>
+
+<div id="outline-container-2.1" class="outline-3">
+<h3 id="sec-2.1"><span class="section-number-3">2.1</span> Concatenation </h3>
+<div class="outline-text-3" id="text-2.1">
+
+
+<p>
+<a href="http://jsfiddle.net/jwalsh/dvUBx/3/">http://jsfiddle.net/jwalsh/dvUBx/3/</a>
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2.2" class="outline-3">
+<h3 id="sec-2.2"><span class="section-number-3">2.2</span> XHR </h3>
+<div class="outline-text-3" id="text-2.2">
+
+
+<p>
+Just pull all of the content from the server.
+</p>
+<p>
+Requires duplicated work. 
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2.3" class="outline-3">
+<h3 id="sec-2.3"><span class="section-number-3">2.3</span> Mustache </h3>
+<div class="outline-text-3" id="text-2.3">
+
+
+<p>
+<a href="http://cloud01.ci04.sea1.cmates.com:15000/rec/static/demo/index.html">http://cloud01.ci04.sea1.cmates.com:15000/rec/static/demo/index.html</a>
+</p>
+
+<p>
+<a href="http://github.com/janl/mustache.js.git">http://github.com/janl/mustache.js.git</a>
+</p>
+<p>
+Recommended by 
+</p>
+<p>
+<a href="http://wiki.apache.org/couchdb/Generating HTML from Javascript shows and lists">http://wiki.apache.org/couchdb/Generating%20HTML%20from%20Javascript%20shows%20and%20lists</a>
+</p>
+<p>
+Notes available in 
+</p>
+<p>
+<a href="http://net.tutsplus.com/tutorials/javascript-ajax/quick-tip-using-the-mustache-template-library/">http://net.tutsplus.com/tutorials/javascript-ajax/quick-tip-using-the-mustache-template-library/</a>
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2.4" class="outline-3">
+<h3 id="sec-2.4"><span class="section-number-3">2.4</span> $.tmpl() </h3>
+<div class="outline-text-3" id="text-2.4">
+
+
+<p>
+Client based.  Available on the server as 
+</p>
+<p>
+<a href="http://github.com/kof/node-jqtpl">http://github.com/kof/node-jqtpl</a>
+</p>
+
+<p>
+Client side interactivity. 
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Implementation </h2>
+<div class="outline-text-2" id="text-3">
+
+
+
+</div>
+
+<div id="outline-container-3.1" class="outline-3">
+<h3 id="sec-3.1"><span class="section-number-3">3.1</span> Run through each of the examples </h3>
+<div class="outline-text-3" id="text-3.1">
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Risks / evaluation factors </h2>
+<div class="outline-text-2" id="text-4">
+
+
+
+</div>
+
+<div id="outline-container-4.1" class="outline-3">
+<h3 id="sec-4.1"><span class="section-number-3">4.1</span> When to use server rendering </h3>
+<div class="outline-text-3" id="text-4.1">
+
+
+<p>
+Use the template only for the single time rendering 
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4.2" class="outline-3">
+<h3 id="sec-4.2"><span class="section-number-3">4.2</span> Performance: compilation of templates is expensive </h3>
+<div class="outline-text-3" id="text-4.2">
+
+
+<p>
+Would need to be cached. 
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4.3" class="outline-3">
+<h3 id="sec-4.3"><span class="section-number-3">4.3</span> Templates not readable </h3>
+<div class="outline-text-3" id="text-4.3">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4.4" class="outline-3">
+<h3 id="sec-4.4"><span class="section-number-3">4.4</span> No tools for segmenting functionality </h3>
+<div class="outline-text-3" id="text-4.4">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4.5" class="outline-3">
+<h3 id="sec-4.5"><span class="section-number-3">4.5</span> Templates will proliferate </h3>
+<div class="outline-text-3" id="text-4.5">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4.6" class="outline-3">
+<h3 id="sec-4.6"><span class="section-number-3">4.6</span> Performance:  Caching needed for templates </h3>
+<div class="outline-text-3" id="text-4.6">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4.7" class="outline-3">
+<h3 id="sec-4.7"><span class="section-number-3">4.7</span> Performance:  Delivery of excessive templates </h3>
+<div class="outline-text-3" id="text-4.7">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4.8" class="outline-3">
+<h3 id="sec-4.8"><span class="section-number-3">4.8</span> Dependency management: Cannot determine which templates are reviewed for a view </h3>
+<div class="outline-text-3" id="text-4.8">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4.9" class="outline-3">
+<h3 id="sec-4.9"><span class="section-number-3">4.9</span> RequiresJS </h3>
+<div class="outline-text-3" id="text-4.9">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4.10" class="outline-3">
+<h3 id="sec-4.10"><span class="section-number-3">4.10</span> DRY </h3>
+<div class="outline-text-3" id="text-4.10">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4.11" class="outline-3">
+<h3 id="sec-4.11"><span class="section-number-3">4.11</span> Maintainability </h3>
+<div class="outline-text-3" id="text-4.11">
+
+
+<p>
+Could become fragmented; no obvious reuse. 
+</p></div>
+
+</div>
+
+<div id="outline-container-4.12" class="outline-3">
+<h3 id="sec-4.12"><span class="section-number-3">4.12</span> Where to serve </h3>
+<div class="outline-text-3" id="text-4.12">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4.13" class="outline-3">
+<h3 id="sec-4.13"><span class="section-number-3">4.13</span> How to cache </h3>
+<div class="outline-text-3" id="text-4.13">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4.14" class="outline-3">
+<h3 id="sec-4.14"><span class="section-number-3">4.14</span> How to avoid duplication </h3>
+<div class="outline-text-3" id="text-4.14">
+
+</div>
+
+</div>
+
+<div id="outline-container-4.15" class="outline-3">
+<h3 id="sec-4.15"><span class="section-number-3">4.15</span> &lt;noscript&gt; ? </h3>
+<div class="outline-text-3" id="text-4.15">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4.16" class="outline-3">
+<h3 id="sec-4.16"><span class="section-number-3">4.16</span> Templates and progressive enhancement </h3>
+<div class="outline-text-3" id="text-4.16">
+
+
+<p>
+<a href="http://github.com/ry/node/wiki/modules">http://github.com/ry/node/wiki/modules</a>
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Notes </h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+<a href="http://benv.ca/2010/1/24/5-tips-for-better-javascript-applications/">http://benv.ca/2010/1/24/5-tips-for-better-javascript-applications/</a>
+</p></div>
+</div>
+<div id="postamble">
+<p class="author"> Author: Walsh
+<a href="mailto:jwalsh@classmates.com">&lt;jwalsh@classmates.com&gt;</a>
+</p>
+<p class="date"> Date: 2010-11-09 18:40:58 PST</p>
+<p class="creator">HTML generated by org-mode 6.33x in emacs 23</p>
+</div>
+</div>
+</body>
+</html>
