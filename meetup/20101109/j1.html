@@ -1,15 +1,30 @@
 <html>
   <head>
-    <title>TITLE</title>
+    <title>Yelp Business Display</title>
   </head>
   <body>
 
-    <h1>TITLE</h1>
-    <ul id="tmpl"></ul>
+    <!-- 
+         See background at 
+         http://www.yelp.com/developers/documentation/search_api
+         http://api.yelp.com/business_review_search?term=yelp&tl_lat=37.9&tl_long=-122.5&br_lat=37.788022&br_long=-122.399797&limit=3&ywsid=pO1WaXbwQQ6A8ybk6QfW0A
+
+    -->
+
+    <script id="businessTemplate" type="text/x-jquery-tmpl">
+      <li><b>${name}</b> (${location})</li>
+    </script>
+
+    <h1>Yelp Business Display</h1>
+
+    <ul id="businesses"></ul>
 
     <script type="text/javascript" 
             src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.js"></script>
-    <script src="template.js"></script>
+    <script type="text/javascript" 
+            src="jquery-tmpl/jquery.tmpl.js"></script>
+    <script type="text/javascript" 
+            src="j1.js"></script>
   </body>
 
 </html>

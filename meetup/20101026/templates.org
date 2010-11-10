@@ -1,30 +1,25 @@
 * Summary 
 
-We won't be able to move forward with development practices unless we begin building out the tools for JavaScript development that doesn't depend on the server or the running context.  This will talk through options 
-for testing new features and mocking content and base cnotracts that e
+See rmuphy's discussion.
 
-
-+ Wanted to provide the expected separation of content from the data 
++ Separate rendering from the data 
 
 + Allow for reuse 
 
-+ Centralize te locaiton 
++ Minimize mixing JavaScript with HTML
 
-+ Treate big and small views differently 
++ Treat big and small views differently 
 
-** Noise 
++ Allow for design to use templates
 
-* Features 
-Why is there an office jQuery plugin?  Reviewed against.
-
-Template systems are like todo lists.  
-Every one has their favorite.
 
 * Review 
 
-Look at what other sites use. 
+Site comparison.  Limited adoption though this could be confirmed with the 1000 beacon.
 
 ** Concatenation 
+
+http://jsfiddle.net/jwalsh/dvUBx/3/
 
 ** XHR 
 
@@ -33,6 +28,9 @@ Just pull all of the content from the server.
 Requires duplicated work. 
 
 ** Mustache 
+
+http://cloud01.ci04.sea1.cmates.com:15000/rec/static/demo/index.html
+
 
 http://github.com/janl/mustache.js.git
 
@@ -63,16 +61,21 @@ Client side interactivity.
 
 Use the template only for the single time rendering 
 
+** Performance: compilation of templates is expensive 
+
+Would need to be cached. 
+
 ** Templates not readable 
 
 ** No tools for segmenting functionality 
 
 ** Templates will proliferate 
 
-** Caching 
-** Performance 
+** Performance:  Caching needed for templates 
 
-What heppens during a compilation process. 
+** Performance:  Delivery of excessive templates 
+
+** Dependency management: Cannot determine which templates are reviewed for a view 
 
 ** RequiresJS 
 

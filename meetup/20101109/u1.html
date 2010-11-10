@@ -1,15 +1,26 @@
 <html>
   <head>
-    <title>TITLE</title>
+    <title>Flickr Interesting Photos</title>
   </head>
   <body>
 
-    <h1>TITLE</h1>
+    <h1>Flickr Interesting Photos</h1>
+
+    <!-- 
+         http://www.flickr.com/services/rest/?method=flickr.test.echo&format=json&api_key=791bf52cfbcb94956a707095c9b1b4a3
+         http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=4e1c7eb99bee5ac603873cafcf39ec3d&auth_token=72157625351607842-c2ac6ed2387ea0da&api_sig=38b89ce6603b87e63eeec1c057333ba8&format=json
+
+    -->
     <ul id="tmpl"></ul>
 
     <script type="text/javascript" 
             src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.js"></script>
-    <script src="template.js"></script>
+    <script type="text/javascript" 
+            src="underscore/underscore.js"></script>
+
+
+    <script type="text/javascript" 
+            src="template.js"></script>
   </body>
 
 </html>
